@@ -1,13 +1,18 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
-
-class BlockList extends Component {
-
-    render() {
+function BlockList(props) {
         return (
             <div id="BlockList"/>
         );
-    }
 }
+
+BlockList.propTypes = {
+  blocks: PropTypes.array
+};
+
+BlockList.defaultProps = {
+    blocks: []
+};
 
 export default BlockList;
