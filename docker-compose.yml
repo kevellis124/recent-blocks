@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
 
-  sample:
+  recent_blocks:
     container_name: recent_blocks
     build:
       context: .
