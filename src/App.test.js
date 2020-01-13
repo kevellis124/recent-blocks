@@ -1,9 +1,15 @@
-import React from 'react';
-import { render } from '@testing-library/react';
+import { mount } from '../src/enzyme';
+import * as React from 'react';
 import App from './App';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('<App />', () => {
+  describe('By default', () => {
+    let component;
+    beforeAll(() => {
+      component = mount(<App/>);
+    });
+    it('hasnt changed', () => {
+      expect(component.html()).toMatchSnapshot();
+    });
+  });
 });
