@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import BlockList from "../components/BlockList";
-import {getTenMostRecentBlocks} from '../API'
+import {getBlockInfo, getLeadBlockId, sleep} from '../API'
 
 class BlockListContainer extends Component {
     constructor() {
@@ -15,20 +15,29 @@ class BlockListContainer extends Component {
     }
 
     reloadBlocks = () => {
-        const rawBlocks = getTenMostRecentBlocks();
         this.setState({
-            blocks: this.mapRawToUsefulBlocks(rawBlocks)
+            blocks: []
         });
+        getLeadBlockId()
+            .then(headBlockId => {
+                this.getNBlocks(10, headBlockId);
+            });
     };
 
-    mapRawToUsefulBlocks = (rawBlocks) => {
-        return rawBlocks;
+    getNBlocks = (n, blockId) => {
+        return getBlockInfo(blockId)
+        .then(
+            block => {
+                const nextBlockId = block['previous'];
+                this.setState({blocks: [...this.state.blocks, block]});
+                if(n != 0) {this.getNBlocks(n - 1, nextBlockId)}
+            }
+        );
     };
-
 
     render() {
         return (
-            <BlockList blocks={this.state.blocks} reload={this.reloadBlocks}/>
+            <BlockList blocks={this.state.blocks} reload={this.reloadBlocks.bind()}/>
         );
     }
 
