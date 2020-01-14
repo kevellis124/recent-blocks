@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import BlockList from "../components/BlockList";
-import { getBlockInfo, getLeadBlockId, sleep } from "../API";
+import { getBlockInfo, getLeadBlockId } from "../API";
 
 class BlockListContainer extends Component {
   constructor() {
@@ -27,7 +27,7 @@ class BlockListContainer extends Component {
     return getBlockInfo(blockId).then(block => {
       const nextBlockId = block["previous"];
       this.setState({ blocks: [...this.state.blocks, block] });
-      if (n != 0) {
+      if (n !== 0) {
         this.getNBlocks(n - 1, nextBlockId);
       }
     });
