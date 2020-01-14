@@ -10,13 +10,23 @@ function BlockList(props) {
         Load
       </Button>
       {props.blocks.map(block => {
+        let actionCount = 0;
+        block.transactions.map(t => {
+          if (
+            t.trx != null &&
+            t.trx.transaction != null &&
+            t.trx.transaction.actions != null
+          ) {
+            actionCount += t.trx.transaction.actions.length;
+          }
+        });
         blockCount++;
         return (
           <Block
             key={blockCount}
             id={block.id}
             timestamp={block.timestamp}
-            actionCount={block.transactions.length}
+            actionCount={actionCount}
           />
         );
       })}
