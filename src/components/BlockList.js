@@ -11,9 +11,10 @@ function BlockList(props) {
       {props.blocks.map(block => {
         return (
           <Block
+            key={block.id}
             id={block.id}
             timestamp={block.timestamp}
-            actionCount={block.transactions.size}
+            actionCount={block.transactions.length}
           />
         );
       })}
@@ -27,8 +28,7 @@ BlockList.propTypes = {
 };
 
 BlockList.defaultProps = {
-  blocks: [],
-  reload: () => {}
+  blocks: []
 };
 
 export default BlockList;

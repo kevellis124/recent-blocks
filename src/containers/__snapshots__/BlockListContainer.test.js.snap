@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<BlockListContainer /> By default hasnt changed 1`] = `"<div id=\\"BlockList\\"></div>"`;
+exports[`<BlockListContainer /> By default hasnt changed 1`] = `"<div id=\\"BlockList\\"><button type=\\"button\\" class=\\"btn btn-primary btn-lg\\">Load</button></div>"`;
