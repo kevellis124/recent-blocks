@@ -27,7 +27,7 @@ class BlockListContainer extends Component {
     return getBlockInfo(blockId).then(block => {
       const nextBlockId = block["previous"];
       this.setState({ blocks: [...this.state.blocks, block] });
-      if (n !== 0) {
+      if (n > 1) {
         this.getNBlocks(n - 1, nextBlockId);
       }
     });
