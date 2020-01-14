@@ -6,7 +6,6 @@ import * as API from "../API";
 import { blockInfoFixture, leadBlockFixture } from "../block_fixtures";
 
 describe("<BlockListContainer />", () => {
-  beforeAll(() => {});
   describe("By default", () => {
     it("hasnt changed", () => {
       const component = mount(<BlockListContainer />);
