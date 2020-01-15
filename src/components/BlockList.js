@@ -27,6 +27,7 @@ function BlockList(props) {
             id={block.id}
             timestamp={block.timestamp}
             actionCount={actionCount}
+            rawBlock={block}
           />
         );
       })}

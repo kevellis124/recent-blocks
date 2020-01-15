@@ -19,6 +19,7 @@ describe("<BlockList />", () => {
         <BlockList blocks={[blockInfoFixture]} reload={reloadFunc} />
       );
       expect(oneBlockComponent.exists(Block));
+      expect(oneBlockComponent.html().includes('<ul>Block action count: 4</ul>')).toBe(true);
       expect(oneBlockComponent.find(Block).length).toBe(1);
       expect(oneBlockComponent.find("button").length).toBe(1);
     });
