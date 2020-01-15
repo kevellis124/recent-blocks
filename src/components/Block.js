@@ -20,7 +20,7 @@ class Block extends Component {
         {this.state.showDetails && (
           <ul>Raw block dump: {JSON.stringify(this.props.rawBlock)}</ul>
         )}
-        <br/>
+        <br />
       </div>
     );
   }

@@ -1,5 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Docker
+In addition to the standard creat-react-app scripts you could run locally, you may also use docker to run this application.
+
+Simply `docker-compose up` and it'll be running on localhost:3001
+
 ## Available Scripts
 
 In the project directory, you can run:
